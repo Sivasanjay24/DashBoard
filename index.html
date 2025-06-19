@@ -4,25 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <script defer src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <!-- <aside class="sidebar">
-        <h2>Horizon</h2>
-        <nav>
-          <a href="#">Dashboard</a>
-          <a href="#">Users</a>
-          <a href="#">Settings</a>
-        </nav>
-      </aside> -->
-
       <main class="main-content">
         <header class="navbar">
           <h1>Dashboard</h1>
@@ -31,12 +20,12 @@
           </button>
         </header>
 
-        <section class="cards">
+        <div class="cards-container">
           <div class="card">
             <div class="icon purple"><i class="fas fa-chart-bar"></i></div>
             <div class="details">
               <p>Earnings</p>
-              <h2 id="earnings">$350.4</h2>
+              <h2 id="earnings">₹350.4</h2>
             </div>
           </div>
 
@@ -44,24 +33,22 @@
             <div class="icon blue"><i class="fas fa-dollar-sign"></i></div>
             <div class="details">
               <p>Spend this month</p>
-              <h2 id="spend">$642.39</h2>
+              <h2 id="spend">₹642.39</h2>
             </div>
           </div>
 
           <div class="card">
-            <div class="details full">
+            <div class="details">
               <p>Sales</p>
-              <h2 id="sales">$574.34</h2>
+              <h2 id="sales">₹574.34</h2>
               <span id="growth">+23% <small>since last month</small></span>
             </div>
           </div>
+
           <div class="card">
-            <div class="details full">
+            <div class="details">
               <p>Your balance</p>
-              <h2 id="balance">$1,000</h2>
-              <!-- <div class="flag">
-          <img src="https://flagcdn.com/w40/in.png" alt="US Flag" />
-        </div> -->
+              <h2 id="balance">₹1,000</h2>
             </div>
           </div>
 
@@ -80,20 +67,36 @@
               <h2 id="projects">2935</h2>
             </div>
           </div>
-        </section>
-        <section class="cardsg">
+        </div>
+
+        <div class="graph-container">
           <div class="graph-section">
-            <div class="graph-details">
+            <div class="graph-header">
               <h2>Total Spent</h2>
-              <h1>₹2,500</h1>
-              <p>+12% since last month</p>
+              <div class="graph-value">
+                <h1>₹2,500</h1>
+                <p>+12% since last month</p>
+              </div>
             </div>
-            <div class="graph-container">
+            <div class="chart-container">
               <canvas id="myChart"></canvas>
             </div>
           </div>
-        </section>
+
+          <div class="weekly-revenue-card">
+            <div class="weekly-revenue-header">
+              <h2>Weekly Revenue</h2>
+              <div class="icon"></div>
+            </div>
+            <div class="chart-container">
+              <canvas id="weeklyRevenueChart"></canvas>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

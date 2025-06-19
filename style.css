@@ -1,6 +1,5 @@
 :root {
   --bg: #f4f7fe;
-  --sidebar-bg: #fff;
   --card-bg: #ffffff;
   --primary: #4318ff;
   --text: #2b2b2b;
@@ -8,7 +7,6 @@
 
 body.dark {
   --bg: #1a202c;
-  --sidebar-bg: #2d3748;
   --card-bg: #2a2e36;
   --text: #ffffff;
 }
@@ -22,96 +20,71 @@ body {
 
 .container {
   display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 220px;
-  background: var(--sidebar-bg);
-  padding: 1rem;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h2 {
-  margin-bottom: 2rem;
-  color: var(--primary);
-}
-
-.sidebar nav a {
-  display: block;
-  padding: 0.8rem 0;
-  color: var(--text);
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.sidebar nav a:hover {
-  background: #e4e7f1;
-  padding-left: 10px;
+  min-height: 100vh;
 }
 
 .main-content {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  padding: 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
   background: var(--card-bg);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
 .icon-btn {
   background: none;
-  border: none; 
-  color:var(--primary);
-  font-size: 3rem;
+  border: none;
+  color: var(--primary);
+  font-size: 1.5rem;
   cursor: pointer;
 }
-.card {
-  background: var(--card-bg);  
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  height: min-content;
-  flex-wrap: wrap;
-  transition: transform 0.2s, background 0.3s, color 0.3s;
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+}
 
 .card:hover {
   transform: translateY(-3px);
 }
 
 .icon {
-  background: #eee;
-  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  font-size: 1.5rem;
   color: white;
+  margin-right: 1rem;
+  font-size: 1.2rem;
 }
 
 .purple { background-color: #7c3aed; }
-.blue   { background-color: #6366f1; }
-.cyan   { background-color: #06b6d4; }
+.blue { background-color: #6366f1; }
+.cyan { background-color: #06b6d4; }
 .indigo { background-color: #4f46e5; }
 
 .details p {
@@ -126,15 +99,6 @@ body {
   color: var(--text);
 }
 
-.full {
-  width: 100%;
-}
-
-.flag img {
-  width: 32px;
-  border-radius: 50%;
-}
-
 #growth {
   color: #16a34a;
   font-weight: bold;
@@ -145,38 +109,70 @@ body {
   color: #777;
 }
 
-
-/*----------------------------------*/
-
-.graph-section {
-  width: 45vw;
-  height: 25vw;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 40vw;
-
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-
+.graph-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
+  gap: 1rem;
+  margin: 1rem 0;
   flex-wrap: wrap;
-
-  transition: transform 0.3s ease;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.graph-section, .weekly-revenue-card {
+  flex: 1;
+  min-width: 300px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
 
+.graph-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
 
-.graph-container {
-  width: 600px;
-  height: 300px;
+/* Add this to your existing styles */
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.graph-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.graph-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.graph-value h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.graph-value p {
+  margin: 0;
+  color: #16a34a;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  margin-top: 1rem;
 }
 
 canvas {
@@ -185,62 +181,44 @@ canvas {
   display: block;
 }
 
-
-.graph-details {
-  flex: 1;
-  min-width: 180px;
-}
-
-.graph-details h2 {
-  color: #6b7280;
-  margin-bottom: 0.5rem;
-}
-
-.graph-details h1 {
-  font-size: 2rem;
-  margin: 0;
-  color: var(--text);
-}
-
-.graph-details p {
-  margin-top: 0.5rem;
-  color: #16a34a;
-  font-weight: 500;
-}
-
-.graph-container {
-  flex: 2;
-  min-width: 300px;
-}
-.cardsg {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-/* Responsive layout for small screens */
-@media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr !important; /* 1 column */
-  }
-
-  .cardsg {
-    flex-direction: column;
-  }
-
-  .graph-section {
-    width: 100vw !important;
-    height: auto !important;
-    min-width: auto !important;
-  }
-
+@media (max-width: 768px) {
   .graph-container {
-    width: 100% !important;
-    height: 250px !important;
+    gap: 1rem;
+    margin: 1rem 0;
   }
+  
+  .graph-section, .weekly-revenue-card {
+    min-width: calc(100% - 2rem);
+    margin: 0 1rem;
+    padding: 1rem;
+  }
+  
+  .chart-container {
+    height: 220px;
+  }
+}
 
-  .main-content {
-    padding: 0 1rem;
+@media (max-width: 480px) {
+  .graph-section, .weekly-revenue-card {
+    min-width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+    padding: 0.8rem;
+  }
+  
+  .chart-container {
+    height: 200px;
+  }
+  .graph-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  
+  .graph-value {
+    gap: 0.3rem;
+  }
+  
+  .graph-value h1 {
+    font-size: 1.5rem;
   }
 }
