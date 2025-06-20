@@ -13,7 +13,7 @@ body.dark {
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
 }
@@ -60,7 +60,7 @@ body {
   background: var(--card-bg);
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
   display: flex;
   align-items: center;
@@ -82,10 +82,18 @@ body {
   font-size: 1.2rem;
 }
 
-.purple { background-color: #7c3aed; }
-.blue { background-color: #6366f1; }
-.cyan { background-color: #06b6d4; }
-.indigo { background-color: #4f46e5; }
+.purple {
+  background-color: #7c3aed;
+}
+.blue {
+  background-color: #6366f1;
+}
+.cyan {
+  background-color: #06b6d4;
+}
+.indigo {
+  background-color: #4f46e5;
+}
 
 .details p {
   margin: 0;
@@ -118,13 +126,14 @@ body {
   box-sizing: border-box;
 }
 
-.graph-section, .weekly-revenue-card {
+.graph-section,
+.weekly-revenue-card {
   flex: 1;
   min-width: 300px;
   background: var(--card-bg);
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -136,7 +145,6 @@ body {
   min-height: 300px;
 }
 
-/* Add this to your existing styles */
 .graph-header {
   display: flex;
   justify-content: space-between;
@@ -186,25 +194,27 @@ canvas {
     gap: 1rem;
     margin: 1rem 0;
   }
-  
-  .graph-section, .weekly-revenue-card {
+
+  .graph-section,
+  .weekly-revenue-card {
     min-width: calc(100% - 2rem);
     margin: 0 1rem;
     padding: 1rem;
   }
-  
+
   .chart-container {
     height: 220px;
   }
 }
 
 @media (max-width: 480px) {
-  .graph-section, .weekly-revenue-card {
+  .graph-section,
+  .weekly-revenue-card {
     min-width: calc(100% - 1rem);
     margin: 0 0.5rem;
     padding: 0.8rem;
   }
-  
+
   .chart-container {
     height: 200px;
   }
@@ -213,11 +223,11 @@ canvas {
     align-items: flex-start;
     gap: 0.3rem;
   }
-  
+
   .graph-value {
     gap: 0.3rem;
   }
-  
+
   .graph-value h1 {
     font-size: 1.5rem;
   }
@@ -234,8 +244,247 @@ canvas {
     margin: 0 0.5rem 1rem;
     width: calc(100% - 1rem);
   }
-  
+
   .card {
     padding: 1.2rem;
   }
+}
+
+.traffic-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 280px;
+  height: 360px;
+  box-shadow: 0 10px 30px rgba(17, 38, 146, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.traffic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.traffic-title {
+  font-size: 13px;
+  color: #6388d2;
+  margin-bottom: 4px;
+}
+
+.traffic-count {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1f2a4c;
+}
+
+.traffic-sub {
+  font-size: 13px;
+  color: #a3aed0;
+}
+
+.traffic-change {
+  font-size: 13px;
+  color: #3cc13b;
+  font-weight: 600;
+}
+
+.pie-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 280px;
+  height: 360px;
+  box-shadow: 0 10px 30px rgba(17, 38, 146, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.pie-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2a4c;
+}
+
+.pie-header span {
+  color: #a3aed0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pie-footer {
+  background-color: #dfe2e9;
+  padding: 12px 16px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #a3aed0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.dot.files {
+  background-color: #3a00ff;
+}
+
+.dot.system {
+  background-color: #6ad2ff;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2a4c;
+}
+
+.pie-card canvas {
+  height: 80% !important;
+  width: 90% !important;
+  margin: 10px auto;
+}
+
+.tasks {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  width: 16.5vw;
+  height: 85%;
+}
+
+.tasks h2 {
+  color: #5f2ded;
+  font-weight: 600;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.tasks h2::before {
+  content: "✔";
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.task-item label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #5f2ded;
+  transform: scale(1.2);
+}
+
+.task-item .dots {
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  line-height: 0;
+}
+.card2 {
+  display: flex;
+  align-items: center;
+}
+
+.calendar {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  width: 16.5vw;
+  height: 85%;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.calendar-header button {
+  background-color: #5f2ded;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 50;
+}
+.calendar-dates div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30%;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 5px;
+  padding-top: 8px;
+}
+.calendar-dates div:hover {
+  background: #f0f0f0;
+}
+.calendar-dates .today {
+  background: #e6f7ff;
+  color: #1890ff;
+  font-weight: bold;
+}
+.calendar-dates .active {
+  background-color: #5f2ded;
+  color: white;
+  font-weight: bold;
+}
+.calendar-dates .other-month {
+  color: #aaa;
 }

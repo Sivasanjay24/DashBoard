@@ -16,12 +16,11 @@
         <header class="navbar">
           <h1>Dashboard</h1>
           <button id="toggleTheme" class="icon-btn" aria-label="Toggle Theme">
-            <span id="Icon">⏾</span>
+            <span id="Icon">◑</span>
           </button>
         </header>
 
         <div class="cards-container">
-          <!-- Card 1 -->
           <div class="card">
             <div class="icon purple"><i class="fas fa-chart-bar"></i></div>
             <div class="details">
@@ -29,8 +28,6 @@
               <h2 id="earnings">₹350.4</h2>
             </div>
           </div>
-
-          <!-- Card 2 -->
           <div class="card">
             <div class="icon blue"><i class="fas fa-dollar-sign"></i></div>
             <div class="details">
@@ -38,8 +35,6 @@
               <h2 id="spend">₹642.39</h2>
             </div>
           </div>
-
-          <!-- Card 3 -->
           <div class="card">
             <div class="details">
               <p>Sales</p>
@@ -47,16 +42,12 @@
               <span id="growth">+23% <small>since last month</small></span>
             </div>
           </div>
-
-          <!-- Card 4 -->
           <div class="card">
             <div class="details">
               <p>Your balance</p>
               <h2 id="balance">₹1,000</h2>
             </div>
           </div>
-
-          <!-- Card 5 -->
           <div class="card">
             <div class="icon cyan"><i class="fas fa-tasks"></i></div>
             <div class="details">
@@ -64,8 +55,6 @@
               <h2 id="tasks">154</h2>
             </div>
           </div>
-
-          <!-- Card 6 -->
           <div class="card">
             <div class="icon indigo"><i class="fas fa-file-alt"></i></div>
             <div class="details">
@@ -96,6 +85,99 @@
             </div>
             <div class="chart-container">
               <canvas id="weeklyRevenueChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="graph-container">
+          <div class="cards2">
+            <div class="traffic-card">
+              <div>
+                <div class="traffic-header">
+                  <div>
+                    <div class="traffic-title">Daily Traffic</div>
+                    <div>
+                      <span class="traffic-count">2.579</span>
+                      <span class="traffic-sub">Visitors</span>
+                    </div>
+                  </div>
+                  <div class="traffic-change">▲ +2.45%</div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="trafficChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="cards2">
+            <div class="pie-card">
+              <div class="pie-header">
+                <div style="color: rgb(146, 146, 244)">Your Pie Chart</div>
+              </div>
+              <canvas id="pieChart"></canvas>
+              <div class="pie-footer">
+                <div class="legend">
+                  <div class="dot files"></div>
+                  Your files
+                </div>
+                <div class="value">60%</div>
+                <div class="legend">
+                  <div class="dot system"></div>
+                  System
+                </div>
+                <div class="value">28%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards2">
+            <div class="tasks">
+              <h2>Tasks</h2>
+              <div class="task-item">
+                <label><input type="checkbox" /> Landing Page Design</label>
+                <span class="dots">⋮</span>
+              </div>
+              <div class="task-item">
+                <label
+                  ><input type="checkbox" checked /> Dashboard Builder</label
+                >
+                <span class="dots">⋮</span>
+              </div>
+              <div class="task-item">
+                <label
+                  ><input type="checkbox" checked /> Mobile App Design</label
+                >
+                <span class="dots">⋮</span>
+              </div>
+              <div class="task-item">
+                <label><input type="checkbox" /> Illustrations</label>
+                <span class="dots">⋮</span>
+              </div>
+              <div class="task-item">
+                <label><input type="checkbox" checked /> Promotional LP</label>
+                <span class="dots">⋮</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards2">
+            <div class="calendar">
+              <div class="calendar-header">
+                <button onclick="changeMonth(-1)">&#60;</button>
+                <h3 id="monthYear">June 2025</h3>
+                <button onclick="changeMonth(1)">&#62;</button>
+              </div>
+              <div class="calendar-days">
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
+                <div>SUN</div>
+                <br>
+              </div>
+              <div class="calendar-dates" id="calendarDates"></div>
             </div>
           </div>
         </div>
