@@ -185,8 +185,55 @@ setInterval(() => {
 
 /*--------------------- Traffic Chart ---------------------*/
 
-const ctx = document.getElementById('trafficChart').getContext('2d');
 
+
+function updateTrafficStats(latestValue, previousValue) {
+  const trafficCountEl = document.querySelector('.traffic-count');
+  const trafficSubEl = document.querySelector('.traffic-sub');
+  const trafficChangeEl = document.querySelector('.traffic-change');
+  
+  
+  trafficCountEl.textContent = latestValue.toFixed(3);
+  
+  
+  const change = ((latestValue - previousValue) / previousValue) * 100;
+  const changeFormatted = Math.abs(change).toFixed(2);
+  
+  
+  if (change > 0) {
+    trafficChangeEl.innerHTML = `▲ +${changeFormatted}%`;
+    trafficChangeEl.style.color = '#4CAF50'; 
+  } else if (change < 0) {
+    trafficChangeEl.innerHTML = `▼ ${changeFormatted}%`;
+    trafficChangeEl.style.color = '#F44336'; 
+  } else {
+    trafficChangeEl.innerHTML = `→ 0.00%`;
+    trafficChangeEl.style.color = '#9E9E9E'; 
+  }
+  
+}
+
+
+function simulateNetworkTraffic() {
+  const currentData = chart.data.datasets[0].data;
+  const previousValue = currentData[currentData.length - 1] || 0;
+  
+  currentData.shift();
+  const baseValue = 20 + Math.sin(Date.now()/10000) * 30;
+  const randomFluctuation = Math.random() * 20 - 10;
+  const newValue = Math.max(0, baseValue + randomFluctuation);
+  currentData.push(newValue);
+  
+  
+  updateTrafficStats(newValue, previousValue);
+  
+  chart.update();
+  setTimeout(simulateNetworkTraffic, 2000);
+}
+
+
+
+const ctx = document.getElementById('trafficChart').getContext('2d');
 
 function createNetworkGradient(ctx, chartArea) {
   const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
@@ -208,7 +255,7 @@ let trafficData = {
       return createNetworkGradient(ctx, chartArea);
     },
     borderRadius: { topLeft: 6, topRight: 6 },
-    barThickness: 50,
+    barThickness: 40,
     borderSkipped: false,
     borderWidth: 0
   }]
@@ -267,24 +314,6 @@ const chart = new Chart(ctx, {
     }
   }
 });
-
-function simulateNetworkTraffic() {
-  
-  const currentData = chart.data.datasets[0].data;
-  currentData.shift();
-  
-  
-  const baseValue = 20 + Math.sin(Date.now()/10000) * 30; 
-  const randomFluctuation = Math.random() * 20 - 10;
-  const newValue = Math.max(0, baseValue + randomFluctuation);
-  currentData.push(newValue);
-  
-  
-  chart.update();
-  
-  
-  setTimeout(simulateNetworkTraffic, 2000);
-}
 
 
 simulateNetworkTraffic();
